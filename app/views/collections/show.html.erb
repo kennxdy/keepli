@@ -1,0 +1,30 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
+<div class="mx-2 mb-4 pb-2 border-bottom">
+  <div class="d-flex mb-3">
+    <%= image_tag("tag.png", class: "title-icon align-self-center" , alt: "Tag icon" ) %>
+    <h1 class="mx-2 mt-1">
+      <%= @collection.name %>
+    </h1>
+  </div>
+  <div class="d-flex mx-1">
+    <div class="">
+      <%= link_to edit_collection_path(@collection), class: "action-icon" do %>
+        <i class="bi bi-pencil align-bottom"></i> Edit
+      <% end %>
+    </div>
+    <div class="px-4">
+      <%= link_to @collection, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "action-icon" do %>
+        <i class="bi bi-trash3 align-bottom"></i> Delete
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= render @collection %>

@@ -1,0 +1,12 @@
+<% @sidebar_collections.each do |collection| %>
+  <ul class="nav flex-column nav-pills">
+    <li class="nav-item sidebar-collection">
+      <%= link_to bookmarks_collection_path(collection), class: class_names("nav-link", "text-decoration-none", { active: current_page?(bookmarks_collection_path(collection)) }) do %>
+        <div class="d-flex justify-content-between align-items-center px-2">
+          <span class="tag"><%= collection.name %></span>
+          <span class="badge text-bg-dark rounded-pill align-text-bottom"><%= collection.bookmarks.count %></span>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

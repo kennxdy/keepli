@@ -1,0 +1,29 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
+<div class="mx-2 mb-4 pb-2 border-bottom">
+  <div class="d-flex mb-3">
+    <%= image_tag("bookmark.png", class: "title-icon align-self-center" , alt: "Bookmark icon" ) %>
+    <h1 class="mx-1 mt-1">
+      <%= @bookmark.title %>
+    </h1>
+  </div>
+  <div class="d-flex mx-1">
+    <div class="">
+      <%= link_to edit_bookmark_path(@bookmark), class: "action-icon" do %>
+        <i class="bi bi-pencil align-bottom"></i> Edit
+      <% end %>
+    </div>
+    <div class="px-4">
+      <%= link_to @bookmark, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "action-icon" do %>
+        <i class="bi bi-trash3 align-bottom"></i> Delete
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render @bookmark %>

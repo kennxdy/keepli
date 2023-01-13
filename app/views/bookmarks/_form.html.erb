@@ -1,0 +1,41 @@
+<%= form_with(model: bookmark) do |form| %>
+  <% if bookmark.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+        <% bookmark.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-4 mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 3 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :link, class: "form-label" %>
+    <%= form.text_field :link, class: "form-control" %>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <%= form.label :collection_id, class: "form-label" %>
+    <%= form.collection_select :collection_id, Collection.order(:name), :id, :name, {}, class: "form-select" %>
+  </div>
+
+  <div class="col-12 py-2">
+    <%= form.submit "Save", class: "btn btn-primary px-4" %>
+    <%= link_to "Cancel", @bookmark, class: "btn btn-secondary px-3 mx-1" %>
+  </div>
+<% end %>
+
+
+
