@@ -61,7 +61,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1/bookmarks
   def bookmarks
     @collection = Collection.find(params[:id])
-    @pagy, @collection_bookmarks = pagy(@collection.bookmarks, items: 12)
+    @pagy, @collection_bookmarks = pagy(@collection.bookmarks.order("created_at DESC"), items: 12)
   end
 
   private
