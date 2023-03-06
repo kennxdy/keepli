@@ -4,7 +4,7 @@ Bookmark Manager to store, organize, and display web bookmarks.
 
 ## Stack
 
-- Ruby 3.2.0
+- Ruby 3.2.1
 - Rails 7.0.4
 - Bootstrap 5.3.0-alpha1
 
